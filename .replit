@@ -1,0 +1,9 @@
+language = "python 3"
+run = "python pp.py"
+modules = ["python-3.11"]
+
+[nix]
+
+[[ports]]
+localPort = 5000
+externalPort = 80
