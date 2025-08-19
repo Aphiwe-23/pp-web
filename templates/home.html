@@ -7,6 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,13 +26,16 @@
     }
 
     /* Navbar container */
+    
+
     .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 40px;
-      position: relative;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000; /* Keeps it above other content */
     }
+
 
     /* Logo */
     .logo {
@@ -116,6 +124,7 @@
       min-width: 250px;
       display: flex;
       flex-direction: column;
+      margin-top: 50px;
       justify-content: center; /* vertically centers text inside its container */
     }
 
@@ -141,6 +150,7 @@
       height: auto;
       display: block;
       border-radius: 10px;
+      margin-top: 50px;
     }
 
     .about-us h2{
@@ -232,6 +242,67 @@
       background-color: #333;
     }
 
+    /* Testimonials */
+    .testimonial-card {
+      background: #f8fffb; /* light background */
+      padding: 40px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 700px;
+      margin: auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .carousel-item {
+      height: 90vh; /* Full height */
+      position: relative;
+    }
+    .carousel-item img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+    .carousel-caption {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: black;
+      text-align: center;
+      width: 100%;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #f6fcf7; /* light green/gray like your screenshot */
+      padding: 50px 20px;
+      border-top: 1px solid #ccc;
+    }
+    .footer-logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .footer-title {
+      font-size: 2.5rem;
+      font-weight: 500;
+      margin-top: 40px;
+    }
+    .footer-divider {
+      border-left: 1px solid black;
+      height: 100%;
+      margin: 0 30px;
+    }
+    .footer-links a {
+      display: block;
+      color: black;
+      text-decoration: underline;
+      margin-bottom: 5px;
+    }
+    .social-icons a {
+      font-size: 1.3rem;
+      margin-right: 15px;
+      color: black;
+    }
     
   </style>
   
@@ -239,6 +310,7 @@
 
 <body>
   <nav class="navbar shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+      
     <!-- Logo -->
     <div class="logo">
       <img src="static/logo.png" alt="Logo"> <!-- Replace with your logo -->
@@ -276,7 +348,7 @@
 
   <!-- About Us Section --> 
   <div class="about-us text-center p-5">
-    <h2>About Us</h2>
+    <h1>About Us</h1>
     <p>Welcome to PixelPilot, your trusted partner in digital marketing. We specialize in creating compelling online experiences that drive results. Our team of experts combines creativity and data-driven strategies to help your brand stand out in the digital landscape.</p>
   </div>
 
@@ -314,7 +386,104 @@
   </section>
 
 
+  <!-- testimonials -->
   
+  <div id="testimonialCarousel" class="carousel slide h-100" data-bs-ride="carousel">
+    <!-- Indicators (dots) -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"></button>
+    </div>
+
+    <!-- Slides -->
+    <div class="carousel-inner">
+       <h1 class="about-us text-center p-5">Testimonials</h1>
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <img src="static/backimg1.jpg" class="d-block w-100" alt="Background">
+        <div class="carousel-caption">
+          <div class="testimonial-card">
+            <p>“Have customers review you and share what they had to say. Click to edit and add their testimonial.”</p>
+            <h6>Alexa Young, CA</h6>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-item">
+        <img src="static/backimg2.jpg" class="d-block w-100" alt="Background">
+        <div class="carousel-caption">
+          <div class="testimonial-card">
+            <p>“PixelPilot helped me grow my business online. I highly recommend their services.”</p>
+            <h6>Michael Smith, NY</h6>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="carousel-item">
+        <img src="static/backimg3.jpg" class="d-block w-100" alt="Background">
+        <div class="carousel-caption">
+          <div class="testimonial-card">
+            <p>“Amazing team to work with — professional, creative, and reliable.”</p>
+            <h6>Sophia Lee, TX</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls (arrows) -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <!-- Left Column -->
+        <div class="col-md-6">
+          <div class="footer-logo">PixelPilot</div>
+          <div class="footer-title">Stay Connected with Us</div>
+        </div>
+
+        <!-- Divider -->
+        <div class="col-md-1 d-none d-md-flex justify-content-center">
+          <div class="footer-divider"></div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="col-md-5">
+          <p>0603688454</p>
+          <p>pixelpilot23@outlook.com</p>
+          <p>South Africa</p>
+
+          <div class="social-icons mb-3">
+            <a href="https://www.instagram.com/direct/t/17843961885540091/"><i class="fab fa-instagram"></i></a>
+          </div>
+
+          <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Accessibility Statement</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Refund Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 
 
   <script>
